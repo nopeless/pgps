@@ -32,16 +32,16 @@ REM '
 GOTO :cmd REM '
 
 if [ "${1%.pgps}" != "$1" ]; then
-  gpg -o "$1.tar.gz" -d "$1" && \
-  tar -xzf "$1.tar.gz" && \
-  rm -f "$1.tar.gz"
+gpg -o "$1.tar.gz" -d "$1" && \
+tar -xzf "$1.tar.gz" && \
+rm -f "$1.tar.gz"
 else
-  gpg -o "$1.pgps" -c "$1.tar.gz" && \
-  tar -czf "$1.tar.gz" "$1"
-  rm -f "$1.tar.gz"
+gpg -o "$1.pgps" -c "$1.tar.gz" && \
+tar -czf "$1.tar.gz" "$1"
+rm -f "$1.tar.gz"
 fi
 
-exit 0
+exit
 
 :cmd
 
